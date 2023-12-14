@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import db
+import models
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
@@ -9,9 +10,6 @@ from sqlalchemy.ext.associationproxy import association_proxy
 
 app = Flask(__name__)
 CORS(app)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'  # Use your preferred database URL
-db = SQLAlchemy(app)
 
 @app.route('/')
 def hello():
